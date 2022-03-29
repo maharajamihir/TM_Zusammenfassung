@@ -59,3 +59,48 @@ Längsabmessung (d << l); jedoch in allen Richtungen auf Zug und Druck belastbar
 
 *** Haftreibung
 - $|F_T| \leq \mu_0 * |F_N|$
+
+** Schwerpunkt
+*** Schwerpunkt einer Gruppe paralleler Einzelkräfte
+Eine Kräftegruppe $\{F_i\}$ parallel wirkender Einzelkräfte (hier: $F_i ∥ e_z$) lässt sich durch eine
+resultierende Einzellast R, welche am Schwerpunkt (der Kräftegruppe) $S = (x_S, y_S)$ angreift
+- $\underline{R} = \sum_i \underline{F_i}$
+- $x_S = \frac{\sum_i x_i F_i}{\sum_i F_i}$
+- $y_S = \frac{\sum_i y_i F_i}{\sum_i F_i}$
+
+*** Verallgemeinerung auf kontinuierliche Kräfte
+**** Linienlast
+Sind diese parallelen Kräfte kontinuierlich und nur entlang einer Linie verteilt, so spricht man von einer *Linienlast* q(x) [N/m].
+
+Diese lässt sich durch eine in $S_q = {x_S}$ angreifende Einzelkraft $R_q$ ersetzen, wobei gilt:
+$R_q = \int q(x) dx$, $x_S = \frac{\int x \ q(x) dx}{R_q}$
+**** Flächenlast
+Sind die parallelen Kräfte kontinuierlich über eine Fläche verteilt, so spricht man von einer
+Flächenlast $p(x, y)$ [N/m2] (Druck).
+Diese lässt sich durch eine in $S_P = (x_S, y_S)$ angreifende Einzelkraft P ersetzen, wobei gilt:
+
+$P = \int p(x,y) dA$, $x_S = \frac{\int x \ p(x,y) dA}{P}$, $y_S = \frac{\int y \ p(x,y) dA}{P}$
+**** Volumenkraft
+Eine parallel wirkende Volumenkraft f(x, y, z) [N/m3] lässt sich durch eine Einzelkraft F ersetzen, welche in einem Angriffspunkt SF = (xS, yS, zS) angreift, wobei gilt:
+$F = \int f(x,y,z)dV$, $x_S = \frac{1}{F} \int x \ f(x,y,z)dV$, $y_S = \frac{1}{F} \int y \ f(x,y,z)dV$, $z_S = \frac{1}{F} \int z \ f(x,y,z)dV$
+
+**** Flächenmittelpunkt
+
+Mittelpunkt bzw geometrischer Schwerpunkt $S = (x_S, y_S)$ einer ebenen Fläche der Größe A ist definiert durch
+$x_S = \frac{1}{A} \int x dA$
+$y_S = \frac{1}{A} \int y dA$
+
+***** Sonderfälle:
+- Schwerpunkt einer achsensymmetrischen fläche liegt auf der achse
+- Eine Fläche aus mehreren Teilflächen mit Flächenschwerpunkten $S_i = (x_i,y_i)$:
+  $x_S = \frac{\sum_i x A_i}{\sum_i A_i}$
+  $y_S = \frac{\sum_i y A_i}{\sum_i A_i}$
+- Löcher zählen als negative Fläche
+
+**** Volumenmittelpunkt
+- $x_S = \frac{1}{V} \int x dV$
+- $y_S = \frac{1}{V} \int y dV$
+- $z_S = \frac{1}{V} \int z dV$
+
+Bei homogogener Masseverteilung ist *Massemittelpunkt = Volumenmittelpunkt*
+Sonst Masseverteilungs bzw Dichte verteilung formel
