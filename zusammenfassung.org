@@ -1,0 +1,61 @@
+#+TITLE: Zusammenfassung
+
+* Statik
+** Grundbegriffe
+
+*** Invarianzoperationen Kräftesystem
+1. Verschieben einer Kraft in Richtung ihrer Wirkungslinie
+(Linienflüchtigkeit von Kräften auf starre Körper)
+2. Zusammenfassen von Kräften mit gemeinsamem Angriffspunkt
+3. Zerlegen von Kräften in Komponenten:
+$F_{res} = F_1 + F_2$
+4. Hinzufügen von Nullkräften:
+$F_1 - F_1 = 0$
+(z.B. zwei entgegengesetzt gerichtete Kräfte mit gleicher Wirkungslinie)
+
+*** (Dreh-)Moment
+**** Kräftepaar
+- Rotation wird als Vektor dargestellt.
+- Richtung über Rechte Hand Regel
+- Länge des Vektors bezeichnet Größe der Rotationswirkung
+- Kann an beliebiger Stelle des Körpers angreifen und ist somit nicht an Wirkungslinie gebunden: *freier Vektor* (= nicht an Bezugspunkt gebunden)
+- Betrag des Moments M ergbibt sich durch $M = h*F$, wobei h der senkrechte Abstand der beiden Kräfte ist (F und -F)
+- Greifen mehrere Kräftepaare an so kann man die Momente einfach addieren
+**** Einzelkraft
+Eine an einem starren Körper in A angreifende Einzelkraft F vom Betrag F hat die gleiche Wirkung auf den Körper wie die in einen Bezugspunkt B parallel verschobene Kraft und ein Moment $M_B$ welches den rotationswirksamen Anteil von F bzgl. B angibt.
+- $\underline{M_B} = r_{BA} \times F \rightarrow |\underline{M_B}| = h*F$
+*** Gleichgewicht
+Ein Körper ist in der x,y-Ebene im Gleichgewicht wenn die Summe aller Kräfte in jeweils x und y Richtung null sind und die Summe aller Momentvektoren für beliebigen Bezugspunkt 0 ist.
+
+** Freischneiden
+*** Tragwerkskomponente
+- Seil: Bauteil, dessen Querschnittsabmessungen sehr viel kleiner sind als seine
+Längsabmessung (d << l); nur auf Zug in Richtung seiner Längsachse belastbar
+- Stab: Bauteil, dessen Querschnittsabmessungen sehr viel kleiner sind als seine
+Längsabmessung (d << l); belastbar auf Zug und Druck, aber nur in Richtung seiner
+Längsachse
+- Balken: Bauteil, dessen Querschnittsabmessungen deutlich kleiner sind als seine
+Längsabmessung (d << l); jedoch in allen Richtungen auf Zug und Druck belastbar
+*** Lagerräume
+#+CAPTION: Lagerräume ebener Systeme
+[[./img/lagerräume_systeme1.png]]
+#+CAPTION: Lagerräume ebener Systeme
+[[./img/lagerräume_systeme2.png]]
+
+*** Statische Bestimmtheit
+- Ein n-teiliges mechanisches System heißt statisch bestimmt, wenn alle Lager- und Verbindungsreaktionen eindeutig aus den Gleichgewichtsbedingungen berechenbar sind.
+- Andernfalls heißt es statisch unbestimmt.
+
+- Die Anzahl möglicher Gleichgewichtsbedingungen ergibt sich als
+  ‘Anzahl der Freiheitsgrade je Teil’ × ‘Anzahl Teile’.
+- Bsp:
+  - Im Raum hat jeder Körper 6 Freiheitsgrade (3 × Translation, 3 × Rotation),
+  - in der Ebene: 3 Freiheitsgrade (2 × Translation, 1 × Rotation).
+
+- Es muss demnach für ebene n-teilige Systeme gelten:
+  *$r + v = 3n$*
+
+*In anderen Worten prüfen wie viel wertig jedes Lager ist (r) und wie viele Lager es gibt (v)*
+
+*** Haftreibung
+- $|F_T| \leq \mu_0 * |F_N|$
