@@ -91,12 +91,14 @@ $x_S = \frac{1}{A} \int x dA$
 $y_S = \frac{1}{A} \int y dA$
 
 ***** Sonderfälle:
-- Schwerpunkt einer achsensymmetrischen fläche liegt auf der achse
+- Schwerpunkt einer achsensymmetrischen Fläche liegt auf der achse
 - Eine Fläche aus mehreren Teilflächen mit Flächenschwerpunkten $S_i = (x_i,y_i)$:
   $x_S = \frac{\sum_i x A_i}{\sum_i A_i}$
   $y_S = \frac{\sum_i y A_i}{\sum_i A_i}$
 - Löcher zählen als negative Fläche
 
+#+CAPTION: Besondere Schwerpunkte
+[[./img/schwerpunkt_tabelle.png]]
 **** Volumenmittelpunkt
 - $x_S = \frac{1}{V} \int x dV$
 - $y_S = \frac{1}{V} \int y dV$
@@ -104,3 +106,22 @@ $y_S = \frac{1}{A} \int y dA$
 
 Bei homogogener Masseverteilung ist *Massemittelpunkt = Volumenmittelpunkt*
 Sonst Masseverteilungs bzw Dichte verteilung formel
+
+***** Rotationskörper
+$\int z dV = \int_0^z \int_0^{r(z)} \int_0^{2\pi} zr \ d\phi \ dr \ dz$
+** Balken
+*** Schnittgrößen
+- Querkraft (senkrecht zur Balkenachse) Q
+- Normalkraft (in Richtung der Balkenachse, normal zur schnittebene) N
+- Biegemoment (y-Komponente des Vektors beschreibt Biegebelastung) M
+*** Einzellasten
+- Egal WO wir zwischen zwei Einzelkräften schneiden, die Gleichung für das Kräftegleichgewicht bleibt dieselbe, und somit ist die Querkraft zwischen zwei Kraftangriffspunkten *konstant*.
+- Anders das Moment, welches zwischen den Kraft-Angriffspunkten eine lineare Funktion in x darstellt, und somit dort *Knicke* aufweist.
+- Am Angriffspunkt einer Einzelkraft F hat also Q(x) einen Sprung (um F), und M(x) einen Knick.
+*** Kontinuierliche Lasten
+- $\frac{dQ}{dx} = -q(x)$
+- $\frac{dN}{dx} = -n(x)$
+- $\frac{dM}{dx} = Q(x)$
+Integration der differntiellen Zusammenhänge liefert:
+- $Q(x) = Q(x_0) - \int_{x_0}^{x} q(u) du$
+- $M(x) = M(x_0) - \int_{x_0}^{x} Q(u) du$
