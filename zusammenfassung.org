@@ -125,3 +125,72 @@ $\int z dV = \int_0^z \int_0^{r(z)} \int_0^{2\pi} zr \ d\phi \ dr \ dz$
 Integration der differntiellen Zusammenhänge liefert:
 - $Q(x) = Q(x_0) - \int_{x_0}^{x} q(u) du$
 - $M(x) = M(x_0) - \int_{x_0}^{x} Q(u) du$
+
+** Arbeit, Potential, Stabilität
+
+*** Arbeit
+Wenn ein Körper mit konstanter Kraft F eine Strecke s verschoben wird so wird Arbeit aufgewand: $W = F*s$
+Allgemein (also wenn Kraft nicht konstant ist) gilt: $W = \int_a^b F \ ds$
+Ein Moment, dass einen Körper um einen Winkel $\phi$ dreht leistet Arbeit: $W = \int M \ d\phi$
+*** Potential
+Hängt die Arbeit nur von der Lage der Endpunkte der Kraft ab und nicht von der gewählten Bahn so handelt es sich um eine Potentialkraft.
+$\Pi = -W = -\int_a^b F \ ds$
+**** Beispiele:
+Federpotential: $\Pi_{Feder} = W_{Feder} = \frac{1}{2} k \Delta x^2$
+Schwerepotential: $\Pi_{Lage} = W_{Lage} = mgh$
+
+*** Energie
+*Energieerhaltungssatz:*
+In einem System ist die Energie am Ende eines Vorgangs gleich groß wie die Energie am Anfang
+des Vorgangs, vermehrt um die dem System zugeführte Arbeit und verringert um die vom System
+abgeführte Arbeit.
+*** Stabilität
+1. *stabiles Gleichgewicht:* Bei einer kleinen Störung (Auslenkung) nimmt das Potential des
+Systems zu → nach Wegnahme der Störung geht das System in die ursprüngliche Lage
+zurück. Kriterium: d2Π/dq2 > 0
+2. *indifferentes Gleichgewicht:* Bei einer kleinen Störung verändert sich das Potential des
+Systems nicht → nach Wegnahme der Störung bleibt das System in der neuen
+Gleichgewichtslage. Kriterium: d2Π/dq2 = d3Π/dq3 = ... = 0
+3. *instabiles Gleichgewicht:* Bei einer kleinen Störung nimmt das Potential des Systems ab
+→ nach Wegnahme der Störung bewegt sich das System weiter von der alten
+Gleichgewichtslage fort. Kriterium: d2Π/dq2 < 0
+
+Ein Zustand / System heißt stabil, wenn sein charakteristisches Verhalten auch bei kleinen
+Störungen erhalten bleibt.
+
+*Systeme mit nur einem Freiheitsgrad q sind somit im Gleichgewicht, wenn gilt: $\frac{d\Pi}{dq} = 0$
+* Elastostatik
+** Grundbegriffe
+*** Spannung
+Normalspannung in einem Körper $\sigma = \frac{F_N}{A*}$
+Schubspannung in einem Körper $\tau = \frac{F_T}{A*}$
+*** Dehnung
+Dehnung $\epsilon = \frac{\Delta l}{l_0}$
+$\epsilon > 0$ Verlängerung, $\epsilon < 0$ Verkürzung
+**** Ortsabhängige Dehnung
+Verschiebung u(x)
+Differenz von Lage eines materiellen Punktes nach
+der Belastung, x + u(x), und ursprünglicher Lage x.
+Betrachte differentielles Element der Länge dx an
+der Stelle x.
+
+$\epsilon (x) = \frac{du}{dx}
+**** Temperatur abhängige Dehnung
+$\epsilon_T(x) = \alpha * \Delta T(x)$, $\alpha$ ist Wärmeausdehnungskoeffizient
+
+*** Zusammenhang Dehnung und Spannung
+Für eindimensionale Probleme (Stäbe) und kleine Dehnungen gilt ein linearer Zusammenhang
+zwischen Spannung und elastischem Anteil der Dehnung:
+$\sigma = E * \epsilon_e$ (Hooksches Gesetz)
+Analog Feder: $F = k*\Delta x$
+
+Unter Wirkung von Spannung + Temperaturänderung
+→ Gesamtdehnung = Superposition von spannungsinduzierter und thermischer Dehnung:
+    $\epsilon_{Ges} = \epsilon_e + \epsilon_T = \frac{\sigma}{E} + \alpha \Delta T$
+Für die Verschiebung ergibt sich somit die Differentialgleichung:
+$\frac{du}{dx} = \epsilon_e + \epsilon_T = \frac{N}{EA} + \alpha \Delta T$
+N ist die in Stabrichtung wirkende Kraft (Normalkraft); EA :=Dehnsteifigkeit des Stabs.
+*** Formänderungsenergie
+$W = \int dW = \int_0^{\Delta x} F du$
+Bei linear elastischen Stäben gilt: $F = EAu/l$
+Also: $W = \frac{1}{2}Fu$
