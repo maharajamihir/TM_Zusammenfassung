@@ -108,7 +108,7 @@ Bei homogogener Masseverteilung ist *Massemittelpunkt = Volumenmittelpunkt*
 Sonst Masseverteilungs bzw Dichte verteilung formel
 
 ***** Rotationskörper
-$\int z dV = \int_0^z \int_0^{r(z)} \int_0^{2\pi} zr \ d\phi \ dr \ dz$
+*$\int z dV = \int_0^z \int_0^{r(z)} \int_0^{2\pi} zr \ d\phi \ dr \ dz$*
 ** Balken
 *** Schnittgrößen
 - Querkraft (senkrecht zur Balkenachse) Q
@@ -122,7 +122,7 @@ $\int z dV = \int_0^z \int_0^{r(z)} \int_0^{2\pi} zr \ d\phi \ dr \ dz$
 - $\frac{dQ}{dx} = -q(x)$
 - $\frac{dN}{dx} = -n(x)$
 - $\frac{dM}{dx} = Q(x)$
-Integration der differntiellen Zusammenhänge liefert:
+Integration der differentiellen Zusammenhänge liefert:
 - $Q(x) = Q(x_0) - \int_{x_0}^{x} q(u) du$
 - $M(x) = M(x_0) - \int_{x_0}^{x} Q(u) du$
 
