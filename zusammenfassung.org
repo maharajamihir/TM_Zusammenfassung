@@ -147,7 +147,7 @@ abgeführte Arbeit.
 *** Stabilität
 1. *stabiles Gleichgewicht:* Bei einer kleinen Störung (Auslenkung) nimmt das Potential des
 Systems zu → nach Wegnahme der Störung geht das System in die ursprüngliche Lage
-zurück. Kriterium: d2Π/dq2 > 0
+zurück. Kriterium: $\frac{d^2\Pi}{d^2q} > 0$
 2. *indifferentes Gleichgewicht:* Bei einer kleinen Störung verändert sich das Potential des
 Systems nicht → nach Wegnahme der Störung bleibt das System in der neuen
 Gleichgewichtslage. Kriterium: d2Π/dq2 = d3Π/dq3 = ... = 0
@@ -158,11 +158,11 @@ Gleichgewichtslage fort. Kriterium: d2Π/dq2 < 0
 Ein Zustand / System heißt stabil, wenn sein charakteristisches Verhalten auch bei kleinen
 Störungen erhalten bleibt.
 
-*Systeme mit nur einem Freiheitsgrad q sind somit im Gleichgewicht, wenn gilt: $\frac{d\Pi}{dq} = 0$
+*Systeme mit nur einem Freiheitsgrad q sind somit im Gleichgewicht, wenn gilt: $\frac{d\Pi}{dq} = 0$*
 * Elastostatik
 ** Grundbegriffe
 *** Spannung
-Normalspannung in einem Körper $\sigma = \frac{F_N}{A*}$
+Normalspannung in einem Körper $\sigma = \frac{F_N}{A*}$, (negativ: Druckspannung im Körper, positiv: auseinanderziehen im Körper)
 Schubspannung in einem Körper $\tau = \frac{F_T}{A*}$
 *** Dehnung
 Dehnung $\epsilon = \frac{\Delta l}{l_0}$
@@ -174,7 +174,7 @@ der Belastung, x + u(x), und ursprünglicher Lage x.
 Betrachte differentielles Element der Länge dx an
 der Stelle x.
 
-$\epsilon (x) = \frac{du}{dx}
+$\epsilon (x) = \frac{du}{dx}$
 **** Temperatur abhängige Dehnung
 $\epsilon_T(x) = \alpha * \Delta T(x)$, $\alpha$ ist Wärmeausdehnungskoeffizient
 
@@ -192,5 +192,254 @@ $\frac{du}{dx} = \epsilon_e + \epsilon_T = \frac{N}{EA} + \alpha \Delta T$
 N ist die in Stabrichtung wirkende Kraft (Normalkraft); EA :=Dehnsteifigkeit des Stabs.
 *** Formänderungsenergie
 $W = \int dW = \int_0^{\Delta x} F du$
-Bei linear elastischen Stäben gilt: $F = EAu/l$
+Bei linear elastischen Stäben gilt: $F = \frac{EAu}{l} = \sigma * A$
 Also: $W = \frac{1}{2}Fu$
+
+** Spannungszustand
+*** Spannungstensor
+Spannungstensor $\underline{\underline{\sigma}}(\underline{x}) = \begin{pmatrix}
+\sigma_{xx} & \tau_{xy} & \tau{xz}\\
+\tau_{yx} & \sigma_{yy} & \tau{yz}\\
+\tau_{zx} & \tau{zy} & \sigma_{zz}
+\end{pmatrix}$
+Momentengleichgewichte um Achsen durch den Quadermittelpunkt liefern Symmetrie:
+$\tau_{ij} = \tau_{ji} \forall i,j \in \{x,y,z\}$
+Den Spannungsvektor in einer Fläche mit Normale n erhält man damit aus:
+$\underline{t} = \underline{\underline{\sigma^T}} * \underline{n} =  \underline{\underline{\sigma}} * \underline{n}$
+**** Sonderfall: Ebener Spannungstensor:
+$\underline{\underline{\sigma}} = \begin{pmatrix}
+\sigma_{x} & \tau_{xy} \\
+\tau_{yx} & \sigma_{y} \\
+\end{pmatrix}$
+*** TODO Gleichgewichtsbedingungen
+
+*** Koordinatentransformation
+Gegeben seien zwei Basen eines Vektorraums: $\{e_x,e_y\}$ und $\{e_{\xi},e_{\eta}\}$
+Es beschreibe die Matrix $T = \{a_{ij}\}$ die Darstellung der ξη-Basis als Linearkombination der xy-Basis:
+$\begin{pmatrix} e_{\xi} \\ e_{\eta}\end{pmatrix} = T * \begin{pmatrix} e_{x} \\ e_{y}\end{pmatrix}$
+
+Transformation eines Ortsvektors: $P^{xy} \rightarrow P^{\xi \eta}$
+
+$P^{\xi \eta} = T *  P^{xy}$
+
+Sowie für die Transformation von Tensoren, hier am Beispiel des Spannungstensors:
+
+$\sigma^{\xi \eta} = T * \sigma^{xy} *T^{-1}$
+
+**** Spezielle Koordinatentransformation: Ebene Drehung
+
+Transformationsmatrix: $T = \begin{pmatrix}
+cos \phi & sin \phi \\
+-sin\phi & cos\phi
+\end{pmatrix}$
+
+$\sigma_\xi = \frac{1}{2}(\sigma_x + \sigma_y) + \frac{1}{2}(\sigma_x - \sigma_y) cos2\phi + \tau_{xy} sin2\phi$
+
+$\sigma_\eta = \frac{1}{2}(\sigma_x + \sigma_y) - \frac{1}{2}(\sigma_x - \sigma_y) cos2\phi - \tau_{xy} sin2\phi$
+
+$\tau_{\xi \eta} =  - \frac{1}{2}(\sigma_x - \sigma_y) sin2\phi + \tau_{xy} cos2\phi$
+*** Hauptspannungen
+**** Hauptrichtung $\phi^*$
+$tan2\phi^* = \frac{2\tau_{\xi \eta}}{\sigma_\xi - \sigma_\eta} = \frac{2\tau_{xy}}{\sigma_x - \sigma_y}$
+**** Hauptspannungen
+Setzt man $\phi^*$ in die Transformationsgleichungen ein, so ergeben sich die Hauptspannungen $\sigma_1 > \sigma_2$, die Schubspannungen verschwinden in diesen Richtungen:
+$\sigma_{1,2} = \frac{\sigma_x + \sigma_y}{2} \pm \sqrt{(\frac{\sigma_x - \sigma_y}{2})^2 + \tau_{xy}^2}, \tau_{12} = 0$
+*** Mohrscher Spannungskreis
+Kreisgleichung: $(\sigma - \sigma_M)^2 + \tau^2 = r^2$
+**** Interpretation
+Normal- und Schubspannungen σ und τ für beliebige Schnitte durch einen Materialpunkt einer
+Scheibe liegen in der στ-Ebene auf einem Kreis um σM mit Radius r, dem sogenannten
+Mohr’schen Spannungskreis (nach Mohr, 1835-1918).
+Der Spannungszustand in einem Punkt einer Scheibe wird also vollständig durch den Mohr’schen
+Spannungskreis beschrieben.
+
+**** Konstruktion
+#+CAPTION: Mohrscher Spannungskreis Konstruktion
+[[./img/mohrscher_spannungskreis_konstruktion.png]]
+
+*** Verzerrungszustand
+Der Verschiebungsvektor ist der Differenzvektor zwischen der Lage eines Materialelements nach und vor der Verformung:
+$\underline{u}(x,y,z) = \underline{P}´(x,y,z) - \underline{P}(x,y,z)$
+
+*Verzerrungstensor*
+$\underline{\underline{\varepsilon}}(x,y,z) = \frac{1}{2}(\Delta \underline{u} + (\Delta \underline{u})^T)$
+
+$\varepsilon_{ij} = \frac{1}{2} (\frac{du_i}{d\xi_j} + \frac{du_j}{d\xi_i})$
+
+*** Materialgesetz
+Zusammenhang zwischen $\sigma \ und \ \varepsilon$ (Spannungstensor und Verzerrungstensor)
+
+**** Hooksches Gesetz
+$\sigma_x = \frac{2G}{1-2\nu}((1-\nu)\epsilon_x + \nu(\epsilon_y+\epsilon_z)), \ \tau_{xy} = 2G\varepsilon_{xy}$
+
+$\sigma_y = \frac{2G}{1-2\nu}((1-\nu)\epsilon_y + \nu(\epsilon_x+\epsilon_z)), \ \tau_{yz} = 2G\varepsilon_{yz}$
+
+$\sigma_z = \frac{2G}{1-2\nu}((1-\nu)\epsilon_y + \nu(\epsilon_x+\epsilon_y)), \ \tau_{xz} = 2G\varepsilon_{xz}$
+
+$E = 2G(1+\nu)$
+**** Berechnung des Spannungszustands
+$\sigma_x = \frac{E}{1-v^2}(\varepsilon_x + \nu \varepsilon_y),  \ \tau_{xy} = 2G\varepsilon_{xy}$
+
+$\sigma_y = \frac{E}{1-v^2}(\varepsilon_y + \nu \varepsilon_x)$
+
+**** Berechnung des Verzerrungszustands
+$\varepsilon_x = \frac{1}{E}(\sigma_x - \nu \sigma_y), \ \varepsilon_{xy} = \frac{1}{2G}\tau_{xy}$
+
+$\varepsilon_y = \frac{1}{E}(\sigma_y - \nu \sigma_x)$
+
+*** Festigkeitshypothesen
+**** Dimensionskriterien
+Vergleichsspannung $\sigma_V$
+
+$\sigma_V \leq \sigma_{zul} = \frac{\sigma_{Grenz}}{S}$
+**** maximale Normalspannung (Rankine)
+$\sigma_V = \sigma_{max} =$ betragsmäßig maximale Hauptnormalspannung
+
+Eignung: gut für spröden Bruch senkrecht zu $\sigma_{max}$, nicht geeignet für Plastifizierung
+
+**** maximale Schubspannung (Tresca)
+$\sigma_V = 2\tau_{max} =$ 2 * maximale Schubspannung
+Eignung: gut für Plastifizierung (unter BEerücksichtigung der Lage von $\sigma_M$, sh. Mohr’scher Kreis)
+
+**** maximale Gestaltänderungsenergie (Mises)
+Liefert schließlich basierend auf den Hauptspannungen $\sigma_1 \geq \sigma_2 \geq \sigma_3$
+$\sigma_V = \sqrt{\frac{1}{2} [(\sigma_1 - \sigma_2)^2 + (\sigma_1 - \sigma_3)^2 + (\sigma_2 - \sigma_3)^2]}$
+Eignung: bis heute die (insbesondere für Plastifizierung) am besten funktionierende Hypothese
+
+** Biegebalken
+*** Verzerrung und Materialgesetz
+- geometrische Beziehung: $u(x,z) = \psi (x) * z$
+- $\sigma = \sigma_x = E \varepsilon_x = E\psi'z = \frac{M}{I}z$
+- $\tau = \tau_{xz} = 2G\varepsilon_{xz} = G(\omega'+\psi)$ ($\omega$ ist Neigung der verformten Balkenachse (lokal))
+*** Schnittgrößen und Spannungsgrößen
+- $Q = \int \tau dA = \int G(\omega' + \psi) dy dz = GA_s (\omega' + \psi)$ (A:= Schubfläche, AG:=Schubsteifigkeit)
+- $N = \int \sigma dA = E\psi' \int z^2 dA = EI\psi'$ mit $I = I_y = \int z^2 dA$ (I:= Flächenträgheitsmoment bzgl der y-Achse, EI:=Biegesteifigkeit)
+- $M = M_y = \int z\sigma \ dA$
+
+*** Flächenträgheitsmoment
+$I_y = \int z^2 dA$ (axiales FTM bzgl y-Achse)
+
+$I_z = \int y^2 dA$ (axiales FTM bzgl z-Achse)
+
+$I_{yz} = I{zy} = -\int yz dA$ (Deviationsmoment)
+
+Die Größe der Flächenträgheitsmomente ist von der Lage des Ursprungs und von der Richtung der Achsen abhängig.
+Das Deviationsmoment verschwindet, Iyz = 0, falls y oder z Symmetrieachse ist.
+
+**** Zusammengesetzte Flächen
+$A = \sum_i A_i$, $I_* = \sum_i I_*^{(i)}$
+**** Parallele Koordinatensysteme (Satz von Steiner)
+Bei parallelen KoSys gilt: $\bar{y} = y + \bar{y}_S , \bar{z} = z + \bar{z}_S$
+- $I_\bar{y} = I_y +\bar{z}_S^2 A$
+- $I_\bar{z} = I_z +\bar{y}_S^2 A$
+- $I_\bar{yz} = I_{yz} +\bar{y}_S^2  \bar{z}_S^2A$
+
+**** Flächenträgheitsmomente einiger Geometrien:
+#+CAPTION: Flächenträgheitsmomente einiger Geometrien
+[[./img/ftm.png]]
+
+**** Rotierte KoSy Flächenträgheitstensor
+$\underline{\underline{I}} = \begin{pmatrix}
+I_y & I_{yz} \\
+I_{zy} & I_z
+\end{pmatrix}$
+
+
+$\underline{\underline{I}}^{\eta \zeta} = \underline{T} * \underline{I}^{yz} * \underline{T}^-1}$
+
+- $I_\eta = \frac{1}{2}(I_y + I_z) + \frac{1}{2}(I_y-I_z) cos(2\varphi) + I_{yz} sin(2\varphi)$
+- $I_\zeta = \frac{1}{2}(I_y + I_z) - \frac{1}{2}(I_y-I_z) cos(2\varphi) - I_{yz} sin(2\varphi)$
+- $I_\zeta = - \frac{1}{2}(I_y-I_z) sin(2\varphi) - I_{yz} cos(2\varphi)$
+
+**** Hauptträgheitsmomente
+$tan2\varphi^* = \frac{2I_{yz}}{I_y - I_z}$
+
+
+$I_{1,2} = \frac{I_y + I_z}{2} \pm \sqrt{(\frac{I_y - I_z}{2})^2 + I_{yz}^2}$, $I_{12} = 0$
+
+** Bernoullibalken
+*** Hypothesen
+1. Bernoullihypothese:
+   Die Balkenquerschnitte bleiben unter der Deformation eben, und Ihre Form bleibt erhalten (w unabhängig von z, s.u.) → N = 0
+2. Bernoullihypothese:
+   Querschnitte, die vor der Deformation senkrecht auf der Balkenachse standen, stehen auch nach der Belastung noch senkrecht auf der deformierten Balkenachse (schubstarrer Balken) → $\frac{dw}{dx} = \omega' \sim -\psi(x)$
+*** Biegelinie $\omega(x)$
+$\omega''(x) = -\frac{M(x)}{EI} \sim \kappa$
+, mit $\kappa$ ist die *Krümmung* der Biegelinie welche für kleine Durchbiegungen ca. $\omega''(x)$ ist
+- $EI\omega''(x) = -M(x)$
+- $EI\omega'''(x) = -Q(x)$
+- $EI\omega^{(4)} = q(x)$
+*** Randbedingungen
+#+CAPTION Einige Randbedingungen
+[[./img/randbedingungen.png]]
+
+* Kinetik
+** Kinematik eines Massepunktes
+*** Grundbegriffe
+- Ortsvektor $r(t) = \begin{pmatrix}x(t)\\ y(t)\\ z(t)\end{pmatrix}$
+- Geschwindigkeit $v(t) = \begin{pmatrix}x'(t)\\ y'(t)\\ z'(t)\end{pmatrix}$
+- Beschleunigung $a(t) = \begin{pmatrix}x''(t)\\ y''(t)\\ z''(t)\end{pmatrix}$
+
+- Betrag eines Vektors: $|\begin{pmatrix}x \\ y \\ z \end{pmatrix}| = \sqrt{x^2+y^2+z^2}$
+
+*** geradlinige Bewegung
+- gleichförmige Bewegung (konstante Geschwindigkeit): $x(t) = x_0 + v_0(t-t_0)$, (Liniear)
+- gleichmäßig beschleuningte Bewegung (konstante Beschleunigung): $x(t) = x_0 + v_0(t-t_0) + \frac{1}{2} a_0 (t-t_0)^2$ (Parabel förmig)
+- zeitabhängig beschleunigte Bewegung: $v(t) = v(t_0) + \int_{t_0}^t a(\tilde{t}) d \tilde{t}$,  $x(t) = x(t_0) + \int_{t_0}^t v(\tilde{t}) d \tilde{t}$
+
+*** Polarkoordinaten
+$\underline{e'_r} = \varphi' \underline{e_{\varphi}}$, $\underline{e'_\varphi} = -\varphi' \underline{e}_r$
+- Ortsvektor: $\underline{r(t)} = r(t) * \underline{e_r}$
+- Geschwindigkeit: $\underline{v(t)} = r' * \underline{e_r} + r\varphi' \underline{e_\varphi}$
+- Beschleunigung: $\underline{a(t)} = (r''-r\varphi'^2) * \underline{e_r} + (r\varphi'' + 2r'\varphi') \underline{e_\varphi}$
+- $\omega = \varphi'$
+
+*** Kreisbewegung
+- $v_\varphi = \bar{r}\omega$
+- $a_\varphi = r\omega'$
+- $a_r = - r\omega^2$
+
+*** Newtonsche Gesetze
+Impuls: $\underline{p} = m\underline{v}$
+
+1. Wenn auf einen Massenpunkt keine Kraft wirkt, so ist der Impuls konstant.
+2. Die zeitliche Änderung des Impulses ist gleich der auf den Massenpunkt wirkenden Kraft. $F = ma = \frac{dp}{dt}$
+3. actio = reactio
+
+*** Freie Bewegung
+Einfach intuitiv F=ma drauf klatschen
+
+*** Trockene Reibung
+$R = N\mu$
+*** Widerstand im Fluid bei kleinen Geschwindigkeiten
+- $F_W = kv$
+- $F_W^{Strokes} = 6\pi\nu rv$
+
+** Stoßprozesse
+*** zeitlicher Ablauf
+- Kompressionsperiode: $\hat{F_K} = \int_{t_0}^{t_M} F(t)dt$
+- Restitutionsperiode: $\hat{F_R} = \int_{t_;}^{t_{end}} F(t)dt$
+
+*** Stoßvorgänge
+- elastischer Stoß (Billiard) $\hat{F}_K = \hat{F}_R$
+- teilelastischer Stoß: Teil der kintischen Energie wird in Schwingung oder bleibende Verformung umgewandelt
+- ideal plastischer Stoß: Nur verformung
+
+#+CAPTION zentraler Stoß mit glatten Wand
+[[./img/stoßvorgänge.png]]
+*** Impulssatz
+- Kraftstoß: $\hat{F} = \int_{t_0}^{t_{end}} Fdt$
+- Impulssatz: $\hat{F} = mv(t_{end}) - mv(t_0)$
+
+*** Systeme von Massepunkten
+- Schwerpunktsatz: $m_{ges}\underline{a}_S = \underline{F}_{ext} = \sum_{i=1}^N F_i$
+- Impulssatz: $\hat{\underline{F}}_{ext} = m_{ges} \underline{v}_S(t_{end}) - m_{ges} \underline{v}_S(t_0)$, mit $v_S = \frac{\sum_i(m_i v_i)}{\sum_i m_i}$
+
+*** Drallsatz
+Drehimpuls $\underline{L} = \underline{r} \times \underline{p}$
+
+Aus dem 2ten Newtonschen gesetz:
+$\underline{r} \times \underline{p}' = \underline{r} \times \underline{F} \rightarrow \underline{L}' = \underline{M}$
+
+*** Körper mit veränderlicher Masse
+$F = ma + m'a$
